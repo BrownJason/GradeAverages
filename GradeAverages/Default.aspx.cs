@@ -40,8 +40,6 @@ namespace GradeAverages
 
             Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
 
-            Chart1.ImageType = System.Web.UI.DataVisualization.Charting.ChartImageType.Jpeg;
-
             Chart1.ChartAreas.Add(new ChartArea());
             Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
 
