@@ -8,6 +8,7 @@ using System.Resources;
 using System.Text;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.DataVisualization.Charting;
 
 namespace GradeAverages
 {
@@ -16,6 +17,36 @@ namespace GradeAverages
         protected void Page_Load(object sender, EventArgs e)
         {
             TextBox1.Enabled = false;
+
+
+
+            ResourceManager rm = new ResourceManager("GradeAverages.Resource1",
+                                               Assembly.GetExecutingAssembly());
+
+            string fileName = rm.GetString("student_mat");
+
+            List<People> peopleArray = People.FromCsv(fileName);
+
+            double fifteenMinutes = (from people in peopleArray where people.TravelTime == 1 select people.G3).Average();
+            double fifteenToThirtyMinutes = (from people in peopleArray where people.TravelTime == 2 select people.G3).Average();
+            double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
+            double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
+
+            double[] yVal = { fifteenMinutes, fifteenToThirtyMinutes, thirtyToHourMinutes, greaterThanHourMinutes };
+            string[] xName = {"15", "15-30", "30-60","60+" };
+
+            Chart1.Series.Add(new Series());
+            Chart1.Series[0].Points.DataBindXY(xName, yVal);
+
+            Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
+
+            Chart1.ImageType = System.Web.UI.DataVisualization.Charting.ChartImageType.Jpeg;
+
+            Chart1.ChartAreas.Add(new ChartArea());
+            Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
+
+            Chart1.Legends.Add(new Legend());
+            Chart1.Legends[0].Enabled = true;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -62,36 +93,6 @@ namespace GradeAverages
                "\nLess than 10, Average Grade: {0:0.00}" +
                "\n10 to 25, Average Grade: {1:0.00}" +
                "\n25 or more, Averge Grade: {2:0.00}", lessThanTenAbsences, betweenTenAnd25Absences, greaterThan25Absences);
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-
-            ResourceManager rm = new ResourceManager("GradeAverages.Resource1",
-                                               Assembly.GetExecutingAssembly());
-
-            string fileName = rm.GetString("student_mat");
-
-            List<People> peopleArray = People.FromCsv(fileName);
-            this.Chart1.Series.Clear();
-
-            double fifteenMinutes = (from people in peopleArray where people.TravelTime == 1 select people.G3).Average();
-            double fifteenToThirtyMinutes = (from people in peopleArray where people.TravelTime == 2 select people.G3).Average();
-            double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
-            double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
-
-            this.Chart1.Titles.Add("Travel Time - Average Grade");
-            this.Chart1.Series["Series2"].Points.AddXY("15", fifteenMinutes);
-            this.Chart1.Series["Series2"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
-            this.Chart1.Series["Series2"].Points.AddXY("30 - 60", thirtyToHourMinutes);
-            this.Chart1.Series["Series2"].Points.AddXY("60+", greaterThanHourMinutes);
-            this.Chart1.Series["Series2"].Enabled = true;
-            this.Chart1.Visible = true;
-        }
-
-        protected void Chart1_Load1(object sender, EventArgs e)
-        {
-
         }
     }
 }
