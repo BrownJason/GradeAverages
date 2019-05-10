@@ -38,15 +38,14 @@ namespace GradeAverages
             Chart1.Series.Add(new Series());
             Chart1.Series[0].Points.DataBindXY(xName, yVal);
 
-            Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
+            Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Bar;
 
             Chart1.ImageType = System.Web.UI.DataVisualization.Charting.ChartImageType.Jpeg;
 
             Chart1.ChartAreas.Add(new ChartArea());
             Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
 
-            Chart1.Legends.Add(new Legend("Travel Time"));
-            Chart1.Legends[0].Enabled = true;
+            Chart1.Legends.Add("Travel Time");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
