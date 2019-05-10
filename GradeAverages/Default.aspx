@@ -41,7 +41,7 @@
                 This graph shows the correlation of travel time of the student to their overall grade.
             </p>
             <div class="col-md-4">
-                <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load1">
+                <asp:Chart ID="Chart1" runat="server">
                     <Series>
                         <asp:Series Name="Series2">
                         </asp:Series>
@@ -51,7 +51,6 @@
                         </asp:ChartArea>
                     </ChartAreas>
                 </asp:Chart>
-                <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" />
             </div>
         </div>
     </div>
