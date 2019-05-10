@@ -43,6 +43,7 @@ namespace GradeAverages
 
             Chart1.ChartAreas.Add(new ChartArea());
             Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
+            Chart1.ChartAreas[0].AxisX.Minimum = 0;
 
             Chart1.Titles.Add("Travel Time - Average Grades");
             Chart1.Width = 500;
