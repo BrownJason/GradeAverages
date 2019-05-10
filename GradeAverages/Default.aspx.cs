@@ -32,7 +32,10 @@ namespace GradeAverages
             double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
             double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
 
-            double[] yVal = { fifteenMinutes, fifteenToThirtyMinutes, thirtyToHourMinutes, greaterThanHourMinutes };
+            string[] yVal = { String.Format("{0:0.00}",fifteenMinutes),
+                String.Format("{0:0.00}", fifteenToThirtyMinutes), 
+                String.Format("{0:0.00}", thirtyToHourMinutes), 
+                String.Format("{0:0.00}",greaterThanHourMinutes) };
             string[] xName = {"15", "15-30", "30-60","60+" };
 
             Chart1.Series.Add(new Series());
@@ -49,8 +52,6 @@ namespace GradeAverages
             Chart1.Titles.Add("Travel Time - Average Grades");
             Chart1.Width = 500;
             Chart1.Height = 500;
-            Chart1.Legends.Add(new Legend());
-            Chart1.Legends[0].Title = "Travel Time";
         }
 
         protected void Button1_Click(object sender, EventArgs e)
