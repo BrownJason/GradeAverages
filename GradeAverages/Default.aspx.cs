@@ -29,13 +29,13 @@ namespace GradeAverages
             double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
             double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
 
-            Chart1.Titles.Add("Travel Time - Average Grade");
-            Chart1.Series["TravelTime"].Points.AddXY("15", fifteenMinutes);
-            Chart1.Series["TravelTime"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
-            Chart1.Series["TravelTime"].Points.AddXY("30 - 60", thirtyToHourMinutes);
-            Chart1.Series["TravelTime"].Points.AddXY("60+", greaterThanHourMinutes);
-            Chart1.Series["TravelTime"].Enabled = true;
-            Chart1.Visible = true;
+            this.Chart1.Titles.Add("Travel Time - Average Grade");
+            this.Chart1.Series["TravelTime"].Points.AddXY("15", fifteenMinutes);
+            this.Chart1.Series["TravelTime"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
+            this.Chart1.Series["TravelTime"].Points.AddXY("30 - 60", thirtyToHourMinutes);
+            this.Chart1.Series["TravelTime"].Points.AddXY("60+", greaterThanHourMinutes);
+            this.Chart1.Series["TravelTime"].Enabled = true;
+            this.Chart1.Visible = true;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
