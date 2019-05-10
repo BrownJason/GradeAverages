@@ -43,7 +43,7 @@
             <div class="col-md-4">
                 <asp:Chart ID="Chart1" runat="server">
                     <Series>
-                        <asp:Series Name="TravelTime" ChartType="Spline">
+                        <asp:Series Name="Series1">
                         </asp:Series>
                     </Series>
                     <ChartAreas>
@@ -51,6 +51,8 @@
                         </asp:ChartArea>
                     </ChartAreas>
                 </asp:Chart>
+                <asp:LinqDataSource ID="LinqDataSource1" runat="server" EntityTypeName="">
+                </asp:LinqDataSource>
             </div>
         </div>
     </div>
