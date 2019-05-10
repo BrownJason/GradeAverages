@@ -45,7 +45,7 @@ namespace GradeAverages
             Chart1.ChartAreas.Add(new ChartArea());
             Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
 
-            Chart1.Legends.Add(new Legend());
+            Chart1.Legends.Add(new Legend("Travel Time"));
             Chart1.Legends[0].Enabled = true;
         }
 
@@ -93,6 +93,11 @@ namespace GradeAverages
                "\nLess than 10, Average Grade: {0:0.00}" +
                "\n10 to 25, Average Grade: {1:0.00}" +
                "\n25 or more, Averge Grade: {2:0.00}", lessThanTenAbsences, betweenTenAnd25Absences, greaterThan25Absences);
+        }
+
+        protected void Chart1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
