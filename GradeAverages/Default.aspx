@@ -43,7 +43,7 @@
             <div class="col-md-4">
                 <asp:Chart ID="Chart1" runat="server">
                     <Series>
-                        <asp:Series Name="Series1" ChartType="Spline">
+                        <asp:Series Name="Travel Time" ChartType="Spline">
                         </asp:Series>
                     </Series>
                     <ChartAreas>

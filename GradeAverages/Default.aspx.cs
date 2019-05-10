@@ -18,7 +18,7 @@ namespace GradeAverages
         protected void Page_Load(object sender, EventArgs e)
         {
             TextBox1.Enabled = false;
-            this.Page.Controls.Add(Chart1);
+            Chart1.Visible = true;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -88,10 +88,10 @@ namespace GradeAverages
             double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
 
             this.Chart1.Titles.Add("Travel Time - Average Grade");
-            this.Chart1.Series["Series1"].Points.AddXY("15", fifteenMinutes);
-            this.Chart1.Series["Series1"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
-            this.Chart1.Series["Series1"].Points.AddXY("30 - 60", thirtyToHourMinutes);
-            this.Chart1.Series["Series1"].Points.AddXY("60+", greaterThanHourMinutes);
+            this.Chart1.Series["Travel Time"].Points.AddXY("15", fifteenMinutes);
+            this.Chart1.Series["Travel Time"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
+            this.Chart1.Series["Travel Time"].Points.AddXY("30 - 60", thirtyToHourMinutes);
+            this.Chart1.Series["Travel Time"].Points.AddXY("60+", greaterThanHourMinutes);
 
         }
     }
