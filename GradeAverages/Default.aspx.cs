@@ -92,7 +92,7 @@ namespace GradeAverages
             Chart1.Series["TravelTime"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
             Chart1.Series["TravelTime"].Points.AddXY("30 - 60", thirtyToHourMinutes);
             Chart1.Series["TravelTime"].Points.AddXY("60+", greaterThanHourMinutes);
-            Chart1.ChartAreas["ChartArea1"].Visible = true;
+            Chart1.Series["TravelTime"].Enabled = true;
         }
     }
 }
