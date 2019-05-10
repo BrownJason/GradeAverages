@@ -64,11 +64,6 @@ namespace GradeAverages
                "\n25 or more, Averge Grade: {2:0.00}", lessThanTenAbsences, betweenTenAnd25Absences, greaterThan25Absences);
         }
 
-        protected void Chart1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         protected void Button2_Click(object sender, EventArgs e)
         {
 
@@ -86,12 +81,17 @@ namespace GradeAverages
             double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
 
             this.Chart1.Titles.Add("Travel Time - Average Grade");
-            this.Chart1.Series["Series1"].Points.AddXY("15", fifteenMinutes);
-            this.Chart1.Series["Series1"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
-            this.Chart1.Series["Series1"].Points.AddXY("30 - 60", thirtyToHourMinutes);
-            this.Chart1.Series["Series1"].Points.AddXY("60+", greaterThanHourMinutes);
-            this.Chart1.Series["Series1"].Enabled = true;
+            this.Chart1.Series["Series2"].Points.AddXY("15", fifteenMinutes);
+            this.Chart1.Series["Series2"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
+            this.Chart1.Series["Series2"].Points.AddXY("30 - 60", thirtyToHourMinutes);
+            this.Chart1.Series["Series2"].Points.AddXY("60+", greaterThanHourMinutes);
+            this.Chart1.Series["Series2"].Enabled = true;
             this.Chart1.Visible = true;
+        }
+
+        protected void Chart1_Load1(object sender, EventArgs e)
+        {
+
         }
     }
 }
