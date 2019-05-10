@@ -24,7 +24,7 @@
                     <asp:ListItem>Study Time</asp:ListItem>
                     <asp:ListItem>Number of Absences</asp:ListItem>
                 </asp:RadioButtonList>
-                <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" OnClientClick="return false"/>
+                <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click"/>
             </div>
             <div>
                 <asp:TextBox ID="TextBox1" runat="server" Height="120px" TextMode="MultiLine" Width="450px" Font-Size="Small"></asp:TextBox>

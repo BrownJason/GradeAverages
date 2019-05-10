@@ -32,10 +32,10 @@ namespace GradeAverages
             double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
             double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
 
-            string[] yVal = { String.Format("{0:0.00}",fifteenMinutes),
-                String.Format("{0:0.00}", fifteenToThirtyMinutes), 
-                String.Format("{0:0.00}", thirtyToHourMinutes), 
-                String.Format("{0:0.00}",greaterThanHourMinutes) };
+            double[] yVal = { double.Parse(String.Format("{0:0.00}",fifteenMinutes)),
+                double.Parse(String.Format("{0:0.00}", fifteenToThirtyMinutes)),
+                double.Parse(String.Format("{0:0.00}", thirtyToHourMinutes)),
+                double.Parse(String.Format("{0:0.00}",greaterThanHourMinutes)) };
             string[] xName = {"15", "15-30", "30-60","60+" };
 
             Chart1.Series.Add(new Series());
