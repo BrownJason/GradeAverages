@@ -8,8 +8,6 @@ using System.Resources;
 using System.Text;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.DataVisualization.Charting;
-using System.Web.UI.WebControls;
 
 namespace GradeAverages
 {
@@ -18,6 +16,25 @@ namespace GradeAverages
         protected void Page_Load(object sender, EventArgs e)
         {
             TextBox1.Enabled = false;
+            ResourceManager rm = new ResourceManager("GradeAverages.Resource1",
+                                               Assembly.GetExecutingAssembly());
+
+            string fileName = rm.GetString("student_mat");
+
+            List<People> peopleArray = People.FromCsv(fileName);
+            this.Chart1.Series.Clear();
+
+            double fifteenMinutes = (from people in peopleArray where people.TravelTime == 1 select people.G3).Average();
+            double fifteenToThirtyMinutes = (from people in peopleArray where people.TravelTime == 2 select people.G3).Average();
+            double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
+            double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
+
+            Chart1.Titles.Add("Travel Time - Average Grade");
+            Chart1.Series["TravelTime"].Points.AddXY("15", fifteenMinutes);
+            Chart1.Series["TravelTime"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
+            Chart1.Series["TravelTime"].Points.AddXY("30 - 60", thirtyToHourMinutes);
+            Chart1.Series["TravelTime"].Points.AddXY("60+", greaterThanHourMinutes);
+            Chart1.Series["TravelTime"].Enabled = true;
             Chart1.Visible = true;
         }
 
@@ -69,30 +86,7 @@ namespace GradeAverages
 
         protected void Chart1_Load(object sender, EventArgs e)
         {
-            FillChart();
-        }
-
-        private void FillChart()
-        {
-            ResourceManager rm = new ResourceManager("GradeAverages.Resource1",
-                                               Assembly.GetExecutingAssembly());
-
-            string fileName = rm.GetString("student_mat");
-
-            List<People> peopleArray = People.FromCsv(fileName);
-            this.Chart1.Series.Clear();
-
-            double fifteenMinutes = (from people in peopleArray where people.TravelTime == 1 select people.G3).Average();
-            double fifteenToThirtyMinutes = (from people in peopleArray where people.TravelTime == 2 select people.G3).Average();
-            double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
-            double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
-
-            Chart1.Titles.Add("Travel Time - Average Grade");
-            Chart1.Series["TravelTime"].Points.AddXY("15", fifteenMinutes);
-            Chart1.Series["TravelTime"].Points.AddXY("15 - 30", fifteenToThirtyMinutes);
-            Chart1.Series["TravelTime"].Points.AddXY("30 - 60", thirtyToHourMinutes);
-            Chart1.Series["TravelTime"].Points.AddXY("60+", greaterThanHourMinutes);
-            Chart1.Series["TravelTime"].Enabled = true;
+            
         }
     }
 }
