@@ -38,7 +38,7 @@ namespace GradeAverages
             Chart1.Series.Add(new Series());
             Chart1.Series[0].Points.DataBindXY(xName, yVal);
 
-            Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Bar;
+            Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
 
             Chart1.ImageType = System.Web.UI.DataVisualization.Charting.ChartImageType.Jpeg;
 
