@@ -51,8 +51,7 @@
                         </asp:ChartArea>
                     </ChartAreas>
                 </asp:Chart>
-                <asp:LinqDataSource ID="LinqDataSource1" runat="server" EntityTypeName="">
-                </asp:LinqDataSource>
+                <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" />
             </div>
         </div>
     </div>
