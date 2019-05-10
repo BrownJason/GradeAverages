@@ -43,13 +43,17 @@
             <div class="col-md-4">
                 <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load" ImageType="Jpeg">
                     <Series>
-                        <asp:Series Name="Series1">
+                        <asp:Series Name="Series1" Legend="Travel Time">
                         </asp:Series>
                     </Series>
                     <ChartAreas>
                         <asp:ChartArea Name="ChartArea1">
                         </asp:ChartArea>
                     </ChartAreas>
+                    <Legends>
+                        <asp:Legend Name="Travel Time">
+                        </asp:Legend>
+                    </Legends>
                 </asp:Chart>
             </div>
         </div>

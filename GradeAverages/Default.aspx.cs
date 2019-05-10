@@ -44,11 +44,13 @@ namespace GradeAverages
             Chart1.ChartAreas.Add(new ChartArea());
             Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
             Chart1.ChartAreas[0].AxisX.Minimum = 0;
+            Chart1.ChartAreas[0].AxisX.Interval = 1;
 
             Chart1.Titles.Add("Travel Time - Average Grades");
             Chart1.Width = 500;
             Chart1.Height = 500;
-            Chart1.Legends.Add("Travel time in minutes");
+            Chart1.Legends.Add(new Legend());
+            Chart1.Legends[0].Title = "Travel Time";
         }
 
         protected void Button1_Click(object sender, EventArgs e)
