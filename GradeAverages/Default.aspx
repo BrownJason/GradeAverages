@@ -32,4 +32,15 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <h2>
+                Travel Time
+            </h2>
+            <p>
+                This graph shows the correlation of travel time of the student to their overall grade.
+            </p>
+        </div>
+    </div>
+
 </asp:Content>

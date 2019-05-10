@@ -65,5 +65,17 @@ namespace GradeAverages
                "\n10 to 25, Average Grade: {1:0.00}" +
                "\n25 or more, Averge Grade: {2:0.00}", lessThanTenAbsences, betweenTenAnd25Absences, greaterThan25Absences);
         }
+
+        protected void Chart1_Load(object sender, EventArgs e)
+        {
+            ResourceManager rm = new ResourceManager("GradeAverages.Resource1",
+                                               Assembly.GetExecutingAssembly());
+
+            string fileName = rm.GetString("student_mat");
+
+            List<People> peopleArray = People.FromCsv(fileName);
+
+
+        }
     }
 }
