@@ -17,8 +17,11 @@ namespace GradeAverages
         protected void Page_Load(object sender, EventArgs e)
         {
             TextBox1.Enabled = false;
-            
-            DispalyChart();
+
+            if (!IsPostBack)
+            {
+                DispalyChart();
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
