@@ -49,6 +49,7 @@ namespace GradeAverages
             Chart1.ChartAreas[0].AxisX.Minimum = 0;
             Chart1.ChartAreas[0].AxisX.Interval = 1;
 
+            Chart1.Series[0].Legend = "Travel time in minutes";
             Chart1.Titles.Add("Travel Time - Average Grades");
             Chart1.Width = 500;
             Chart1.Height = 500;
