@@ -43,13 +43,14 @@ namespace GradeAverages
 
             Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
             Chart1.Series[0].IsValueShownAsLabel = true;
+            Chart1.Series[0].AxisLabel = "Travel time in minutes";
 
             Chart1.ChartAreas.Add(new ChartArea());
             Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
             Chart1.ChartAreas[0].AxisX.Minimum = 0;
             Chart1.ChartAreas[0].AxisX.Interval = 1;
 
-            Chart1.Series[0].Legend = "Travel time in minutes";
+            Chart1.Series[0].LegendText = "Grade Averges";
             Chart1.Titles.Add("Travel Time - Average Grades");
             Chart1.Width = 500;
             Chart1.Height = 500;
