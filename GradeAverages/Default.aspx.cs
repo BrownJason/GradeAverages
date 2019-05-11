@@ -38,7 +38,7 @@ namespace GradeAverages
                 double.Parse(String.Format("{0:0.00}",greaterThanHourMinutes)) };
             string[] xName = {"15", "15-30", "30-60","60+" };
 
-            Chart1.Series.Add(new Series());
+            Chart1.Series.Add("Series1");
             Chart1.Series[0].Points.DataBindXY(xName, yVal);
 
             Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
@@ -49,7 +49,7 @@ namespace GradeAverages
             Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
             Chart1.ChartAreas[0].AxisX.Minimum = 0;
             Chart1.ChartAreas[0].AxisX.Interval = 1;
-
+            
             Chart1.Series[0].LegendText = "Grade Averges";
             Chart1.Titles.Add("Travel Time - Average Grades");
             Chart1.Width = 500;
