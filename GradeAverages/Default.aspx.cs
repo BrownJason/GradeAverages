@@ -136,74 +136,17 @@ namespace GradeAverages
             double healthFourG3 = (from people in peopleArray where people.Health == 4 select people.G3).Average();
             double healthFiveG3 = (from people in peopleArray where people.Health == 5 select people.G3).Average();
 
-            double h1G1 = 0, h2G1 = 0, h3G1 = 0, h4G1 = 0, h5G1 = 0;
-            foreach(string s in healthOneG1)
-            {
-                h1G1 += int.Parse(s);
-            }
-
-            foreach (string s in healthTwoG1)
-            {
-                h2G1 += int.Parse(s);
-            }
-            foreach (string s in healthThreeG1)
-            {
-                h3G1 += int.Parse(s);
-            }
-            foreach (string s in healthFourG1)
-            {
-                h4G1 += int.Parse(s);
-            }
-            foreach (string s in healthFiveG1)
-            {
-                h5G1 += int.Parse(s);
-            }
-
-            h1G1 = h1G1 / healthOneG1.Count();
-            h2G1 = h2G1 / healthTwoG1.Count();
-            h3G1 = h3G1 / healthThreeG1.Count();
-            h4G1 = h4G1 / healthFourG1.Count();
-            h5G1 = h5G1 / healthFiveG1.Count();
-
-            double h1G2 = 0, h2G2 = 0, h3G2 = 0, h4G2 = 0, h5G2 = 0;
-            foreach (string s in healthOneG2)
-            {
-                h1G2 += int.Parse(s);
-            }
-
-            foreach (string s in healthTwoG2)
-            {
-                h2G2 += int.Parse(s);
-            }
-            foreach (string s in healthThreeG2)
-            {
-                h3G2 += int.Parse(s);
-            }
-            foreach (string s in healthFourG2)
-            {
-                h4G2 += int.Parse(s);
-            }
-            foreach (string s in healthFiveG2)
-            {
-                h5G2 += int.Parse(s);
-            }
-
-            h1G2 = h1G2 / healthOneG2.Count();
-            h2G2 = h2G2 / healthTwoG2.Count();
-            h3G2 = h3G2 / healthThreeG2.Count();
-            h4G2 = h4G2 / healthFourG2.Count();
-            h5G2 = h5G2 / healthFiveG2.Count();
-
-            double[] healthG1 = { double.Parse(String.Format("{0:0.00}", h1G1)),
-                double.Parse(String.Format("{0:0.00}", h2G1)),
-                double.Parse(String.Format("{0:0.00}", h3G1)),
-                double.Parse(String.Format("{0:0.00}", h4G1)),
-                double.Parse(String.Format("{0:0.00}", h5G1)) };
-            double[] healthG2 = { double.Parse(String.Format("{0:0.00}", h1G2)),
-                double.Parse(String.Format("{0:0.00}", h2G2)),
-                double.Parse(String.Format("{0:0.00}", h3G2)),
-                double.Parse(String.Format("{0:0.00}", h4G2)),
-                double.Parse(String.Format("{0:0.00}", h5G2)) };
+            double[] healthG1 = { double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthOneG1))),
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthTwoG1))),
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthThreeG1))),
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthFourG1))),
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthFiveG1))) };
+            double[] healthG2 = { 
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthOneG2))),
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthTwoG1))),
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthThreeG2))),
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthFourG2))),
+                double.Parse(String.Format("{0:0.00}", GetDoubleAmount(healthFiveG2))) };
             double[] healthG3 = { double.Parse(String.Format("{0:0.00}", healthOneG3)),
                 double.Parse(String.Format("{0:0.00}",healthTwoG3)),
                 double.Parse(String.Format("{0:0.00}",healthThreeG3)),
@@ -231,6 +174,7 @@ namespace GradeAverages
             Chart2.Series[2].IsValueShownAsLabel = true;
 
             Chart2.ChartAreas.Add("ChartArea2");
+            Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
             Chart2.ChartAreas[0].AxisX.Minimum = 0;
             Chart2.ChartAreas[0].AxisX.Title = "Overall Health Scale";
             Chart2.ChartAreas[0].AxisX.Interval = 1;
@@ -242,6 +186,17 @@ namespace GradeAverages
             Chart2.Width = 650;
             Chart2.Height = 450;
 
+        }
+
+        public double GetDoubleAmount(IEnumerable<string> value)
+        {
+            double retVal = 0;
+            foreach (string s in value)
+            {
+                retVal += int.Parse(s);
+            }
+
+            return (retVal = retVal / value.Count());
         }
     }
 }
