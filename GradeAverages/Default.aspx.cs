@@ -17,42 +17,8 @@ namespace GradeAverages
         protected void Page_Load(object sender, EventArgs e)
         {
             TextBox1.Enabled = false;
-
-
-
-            ResourceManager rm = new ResourceManager("GradeAverages.Resource1",
-                                               Assembly.GetExecutingAssembly());
-
-            string fileName = rm.GetString("student_mat");
-
-            List<People> peopleArray = People.FromCsv(fileName);
-
-            double fifteenMinutes = (from people in peopleArray where people.TravelTime == 1 select people.G3).Average();
-            double fifteenToThirtyMinutes = (from people in peopleArray where people.TravelTime == 2 select people.G3).Average();
-            double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
-            double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
-
-            double[] yVal = { double.Parse(String.Format("{0:0.00}",fifteenMinutes)),
-                double.Parse(String.Format("{0:0.00}", fifteenToThirtyMinutes)),
-                double.Parse(String.Format("{0:0.00}", thirtyToHourMinutes)),
-                double.Parse(String.Format("{0:0.00}",greaterThanHourMinutes)) };
-            string[] xName = {"15", "15-30", "30-60","60+" };
-
-            Chart1.Series.Add("Series1");
-            Chart1.Series[0].Points.DataBindXY(xName, yVal);
-
-            Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
-            Chart1.Series[0].IsValueShownAsLabel = true;
-            Chart1.Series[0].AxisLabel = "Travel time in minutes";
-
-            Chart1.ChartAreas.Add("ChartArea1");
-            Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
-            Chart1.ChartAreas[0].AxisX.Minimum = 0;
-            Chart1.ChartAreas[0].AxisX.Interval = 1;
             
-            Chart1.Series[0].LegendText = "Grade Averges";
-            Chart1.Titles.Add("Travel Time - Average Grades");
-            Chart1.Width = 500;
+            DispalyChart();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -104,6 +70,44 @@ namespace GradeAverages
         protected void Chart1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void DispalyChart()
+        {
+            ResourceManager rm = new ResourceManager("GradeAverages.Resource1",
+                                               Assembly.GetExecutingAssembly());
+
+            string fileName = rm.GetString("student_mat");
+
+            List<People> peopleArray = People.FromCsv(fileName);
+
+            double fifteenMinutes = (from people in peopleArray where people.TravelTime == 1 select people.G3).Average();
+            double fifteenToThirtyMinutes = (from people in peopleArray where people.TravelTime == 2 select people.G3).Average();
+            double thirtyToHourMinutes = (from people in peopleArray where people.TravelTime == 3 select people.G3).Average();
+            double greaterThanHourMinutes = (from people in peopleArray where people.TravelTime == 4 select people.G3).Average();
+
+            double[] yVal = { double.Parse(String.Format("{0:0.00}",fifteenMinutes)),
+                double.Parse(String.Format("{0:0.00}", fifteenToThirtyMinutes)),
+                double.Parse(String.Format("{0:0.00}", thirtyToHourMinutes)),
+                double.Parse(String.Format("{0:0.00}",greaterThanHourMinutes)) };
+            string[] xName = { "15", "15-30", "30-60", "60+" };
+
+            Chart1.Series.Add("Series1");
+            Chart1.Series[0].Points.DataBindXY(xName, yVal);
+            Chart1.Series[0].Font = new System.Drawing.Font("Times", 16f);
+
+            Chart1.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
+            Chart1.Series[0].IsValueShownAsLabel = true;
+            Chart1.Series[0].AxisLabel = "Travel time in minutes";
+
+            Chart1.ChartAreas.Add("ChartArea1");
+            Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
+            Chart1.ChartAreas[0].AxisX.Minimum = 0;
+            Chart1.ChartAreas[0].AxisX.Interval = 1;
+
+            Chart1.Series[0].LegendText = "Grade Averges";
+            Chart1.Titles.Add("Travel Time - Average Grades");
+            Chart1.Width = 500;
         }
     }
 }

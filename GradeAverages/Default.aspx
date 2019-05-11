@@ -42,7 +42,7 @@
                         This graph shows the correlation of travel time of the student to their overall grade.
                     </p>
                     <div class="col-md-4">
-                        <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load">
+                        <asp:Chart ID="Chart1" runat="server" Palette="Excel">
                             <Legends>
                                 <asp:Legend Name="Travel time in minutes">
                                 </asp:Legend>
