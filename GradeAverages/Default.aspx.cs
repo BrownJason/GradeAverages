@@ -112,6 +112,7 @@ namespace GradeAverages
             Chart1.ChartAreas.Add("ChartArea1");
             Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
             Chart1.ChartAreas[0].AxisX.Minimum = 0;
+            Chart1.ChartAreas[0].AxisX.Title = "Travel time in minutes";
             Chart1.ChartAreas[0].AxisX.Interval = 1;
 
             Chart1.Series[0].LegendText = "Grade Averges";
