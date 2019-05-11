@@ -205,17 +205,18 @@ namespace GradeAverages
                 double.Parse(String.Format("{0:0.00}", h4G2)),
                 double.Parse(String.Format("{0:0.00}", h5G2)) };
             double[] healthG3 = { healthOneG3, healthTwoG3, healthThreeG3, healthFourG3, healthFiveG3};
+            double[] xVals = { 1, 2, 3, 4, 5 };
 
             Chart2.Series.Add("Series2");
-            Chart2.Series[0].Points.DataBindXY("1", healthG1);
+            Chart2.Series[0].Points.DataBindXY(xVals, healthG1);
             Chart2.Series[0].Font = new System.Drawing.Font("Times", 16f);
 
             Chart2.Series.Add("Series3");
-            Chart2.Series[1].Points.DataBindXY("1", healthG2);
+            Chart2.Series[1].Points.DataBindXY(xVals, healthG2);
             Chart2.Series[1].Font = new System.Drawing.Font("Times", 16f);
 
             Chart2.Series.Add("Series4");
-            Chart2.Series[2].Points.DataBindXY("1", healthG3);
+            Chart2.Series[2].Points.DataBindXY(xVals, healthG3);
             Chart2.Series[2].Font = new System.Drawing.Font("Times", 16f);
 
             Chart2.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Spline;
