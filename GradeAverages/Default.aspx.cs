@@ -174,7 +174,7 @@ namespace GradeAverages
             Chart2.Series[2].IsValueShownAsLabel = true;
 
             Chart2.ChartAreas.Add("ChartArea2");
-            Chart1.ChartAreas[0].Area3DStyle.Enable3D = true;
+            Chart2.ChartAreas[0].Area3DStyle.Enable3D = true;
             Chart2.ChartAreas[0].AxisX.Minimum = 0;
             Chart2.ChartAreas[0].AxisX.Title = "Overall Health Scale";
             Chart2.ChartAreas[0].AxisX.Interval = 1;
