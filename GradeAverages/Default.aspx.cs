@@ -223,9 +223,9 @@ namespace GradeAverages
             Chart2.Series[2].Points.DataBindXY(xVals, healthG3);
             Chart2.Series[2].Font = new System.Drawing.Font("Times", 16f);
 
-            Chart2.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
-            Chart2.Series[1].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
-            Chart2.Series[2].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
+            Chart2.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Bar;
+            Chart2.Series[1].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Bar;
+            Chart2.Series[2].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Bar;
             Chart2.Series[0].IsValueShownAsLabel = true;
             Chart2.Series[1].IsValueShownAsLabel = true;
             Chart2.Series[2].IsValueShownAsLabel = true;
