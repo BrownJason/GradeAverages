@@ -50,6 +50,10 @@
                         <asp:ChartArea Name="ChartArea1">
                         </asp:ChartArea>
                     </ChartAreas>
+                    <Legends>
+                        <asp:Legend Name="Travel time in minutes">
+                        </asp:Legend>
+                    </Legends>
                 </asp:Chart>
             </div>
         </div>
