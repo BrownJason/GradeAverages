@@ -42,10 +42,6 @@
             </p>
             <div class="col-md-4">
                 <asp:Chart ID="Chart1" runat="server" OnLoad="Chart1_Load">
-                    <ChartAreas>
-                        <asp:ChartArea Name="ChartArea1">
-                        </asp:ChartArea>
-                    </ChartAreas>
                     <Legends>
                         <asp:Legend Name="Travel time in minutes">
                         </asp:Legend>
