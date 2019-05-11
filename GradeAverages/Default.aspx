@@ -39,12 +39,31 @@
                         Travel Time
                     </h2>
                     <p>
-                        This graph shows the correlation of travel time of the student to their overall grade.
+                        This graph shows the correlation of travel time of the student to their overall grade. 
                     </p>
                     <div class="col-md-4">
                         <asp:Chart ID="Chart1" runat="server" Palette="Excel" EnableViewState="true">
                             <Legends>
                                 <asp:Legend Name="Travel time in minutes">
+                                </asp:Legend>
+                            </Legends>
+                        </asp:Chart>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <h2>
+                        Health
+                    </h2>
+                    <p>
+                        This graph shows the overall health of a student based off of how their grades are, with 1 being very bad to 5 being very good.
+                    </p>
+                    <div class="col-md-4">
+                        <asp:Chart ID="Chart2" runat="server" Palette="Excel" EnableViewState="true">
+                            <Legends>
+                                <asp:Legend Name="Overall Health">
                                 </asp:Legend>
                             </Legends>
                         </asp:Chart>

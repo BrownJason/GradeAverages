@@ -119,6 +119,57 @@ namespace GradeAverages
             Chart1.Titles.Add("Travel Time - Average Grades");
             Chart1.Width = 650;
             Chart1.Height = 450;
+
+            IEnumerable<string> healthOneG1 = (from people in peopleArray where people.Health == 1 select people.G1);
+            IEnumerable<string> healthOneG2 = (from people in peopleArray where people.Health == 1 select people.G2);
+            double healthOneG3 = (from people in peopleArray where people.Health == 1 select people.G3).Average();
+
+            double h1G1 = 0;
+            foreach(string s in healthOneG1)
+            {
+                h1G1 += int.Parse(s);
+            }
+
+            h1G1 = h1G1 / healthOneG1.Count();
+
+
+            double h1G2 = 0;
+            foreach (string s in healthOneG2)
+            {
+                h1G2 += int.Parse(s);
+            }
+
+            h1G2 = h1G2 / healthOneG2.Count();
+
+            Chart2.Series.Add("Series1");
+            Chart2.Series[0].Points.DataBindXY("1", String.Format("{0:0.00}", h1G1));
+            Chart2.Series[0].Font = new System.Drawing.Font("Times", 16f);
+
+            Chart2.Series.Add("Series1");
+            Chart2.Series[1].Points.DataBindXY("1", String.Format("{0:0.00}", h1G1));
+            Chart2.Series[1].Font = new System.Drawing.Font("Times", 16f);
+
+            Chart2.Series.Add("Series1");
+            Chart2.Series[2].Points.DataBindXY("1", String.Format("{0:0.00}", healthOneG3));
+            Chart2.Series[2].Font = new System.Drawing.Font("Times", 16f);
+
+            Chart2.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
+            Chart2.Series[0].IsValueShownAsLabel = true;
+            Chart2.Series[0].AxisLabel = "Overall Health Scale";
+
+            Chart2.ChartAreas.Add("ChartArea1");
+            Chart2.ChartAreas[0].Area3DStyle.Enable3D = true;
+            Chart2.ChartAreas[0].AxisX.Minimum = 0;
+            Chart2.ChartAreas[0].AxisX.Title = "Travel time in minutes";
+            Chart2.ChartAreas[0].AxisX.Interval = 1;
+
+            Chart2.Series[0].LegendText = "G1";
+            Chart2.Series[1].LegendText = "G2";
+            Chart2.Series[2].LegendText = "G3";
+            Chart2.Titles.Add("Travel Time - Average Grades");
+            Chart2.Width = 650;
+            Chart2.Height = 450;
+
         }
     }
 }
