@@ -141,15 +141,15 @@ namespace GradeAverages
 
             h1G2 = h1G2 / healthOneG2.Count();
 
-            Chart2.Series.Add("Series1");
+            Chart2.Series.Add("Series2");
             Chart2.Series[0].Points.AddXY("1", double.Parse(String.Format("{0:0.00}", h1G1)));
             Chart2.Series[0].Font = new System.Drawing.Font("Times", 16f);
 
-            Chart2.Series.Add("Series1");
+            Chart2.Series.Add("Series3");
             Chart2.Series[1].Points.AddXY("1", double.Parse(String.Format("{0:0.00}", h1G2)));
             Chart2.Series[1].Font = new System.Drawing.Font("Times", 16f);
 
-            Chart2.Series.Add("Series1");
+            Chart2.Series.Add("Series4");
             Chart2.Series[2].Points.AddXY("1", double.Parse(String.Format("{0:0.00}", healthOneG3)));
             Chart2.Series[2].Font = new System.Drawing.Font("Times", 16f);
 
@@ -157,7 +157,7 @@ namespace GradeAverages
             Chart2.Series[0].IsValueShownAsLabel = true;
             Chart2.Series[0].AxisLabel = "Overall Health Scale";
 
-            Chart2.ChartAreas.Add("ChartArea1");
+            Chart2.ChartAreas.Add("ChartArea2");
             Chart2.ChartAreas[0].Area3DStyle.Enable3D = true;
             Chart2.ChartAreas[0].AxisX.Minimum = 0;
             Chart2.ChartAreas[0].AxisX.Title = "Travel time in minutes";
@@ -166,7 +166,7 @@ namespace GradeAverages
             Chart2.Series[0].LegendText = "G1";
             Chart2.Series[1].LegendText = "G2";
             Chart2.Series[2].LegendText = "G3";
-            Chart2.Titles.Add("Travel Time - Average Grades");
+            Chart2.Titles.Add("Overall Health - Average Grades");
             Chart2.Width = 650;
             Chart2.Height = 450;
 

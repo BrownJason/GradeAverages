@@ -61,7 +61,7 @@
                         This graph shows the overall health of a student based off of how their grades are, with 1 being very bad to 5 being very good.
                     </p>
                     <div class="col-md-4">
-                        <asp:Chart ID="Chart2" runat="server" Palette="Excel" EnableViewState="true">
+                        <asp:Chart ID="Chart2" runat="server" Palette="Excel" EnableViewState="True">
                             <Legends>
                                 <asp:Legend Name="Overall Health">
                                 </asp:Legend>
