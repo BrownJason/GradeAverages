@@ -20,8 +20,6 @@ namespace GradeAverages
             if (!IsPostBack)
             {
                 TextBox1.Enabled = false;
-
-                DispalyChart();
             }
 
             if (!hdeLoadChart)
