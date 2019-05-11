@@ -14,13 +14,17 @@ namespace GradeAverages
 {
     public partial class _Default : Page
     {
+        Boolean hdeLoadChart = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBox1.Enabled = false;
-
             if (!IsPostBack)
             {
-                DispalyChart();
+                TextBox1.Enabled = false;
+
+                if (!hdeLoadChart)
+                {
+                    DispalyChart();
+                }
             }
         }
 
@@ -68,6 +72,8 @@ namespace GradeAverages
                "\nLess than 10, Average Grade: {0:0.00}" +
                "\n10 to 25, Average Grade: {1:0.00}" +
                "\n25 or more, Averge Grade: {2:0.00}", lessThanTenAbsences, betweenTenAnd25Absences, greaterThan25Absences);
+
+            hdeLoadChart = true;
         }
 
         protected void Chart1_Load(object sender, EventArgs e)
