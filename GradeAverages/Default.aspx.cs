@@ -204,7 +204,11 @@ namespace GradeAverages
                 double.Parse(String.Format("{0:0.00}", h3G2)),
                 double.Parse(String.Format("{0:0.00}", h4G2)),
                 double.Parse(String.Format("{0:0.00}", h5G2)) };
-            double[] healthG3 = { healthOneG3, healthTwoG3, healthThreeG3, healthFourG3, healthFiveG3};
+            double[] healthG3 = { double.Parse(String.Format("{0:0.00}", healthOneG3)),
+                double.Parse(String.Format("{0:0.00}",healthTwoG3)),
+                double.Parse(String.Format("{0:0.00}",healthThreeG3)),
+                double.Parse(String.Format("{0:0.00}",healthFourG3)),
+                double.Parse(String.Format("{0:0.00}",healthFiveG3)) };
             double[] xVals = { 1, 2, 3, 4, 5 };
 
             Chart2.Series.Add("Series2");
@@ -219,7 +223,9 @@ namespace GradeAverages
             Chart2.Series[2].Points.DataBindXY(xVals, healthG3);
             Chart2.Series[2].Font = new System.Drawing.Font("Times", 16f);
 
-            Chart2.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Spline;
+            Chart2.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
+            Chart2.Series[1].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
+            Chart2.Series[2].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
             Chart2.Series[0].IsValueShownAsLabel = true;
             Chart2.Series[1].IsValueShownAsLabel = true;
             Chart2.Series[2].IsValueShownAsLabel = true;
