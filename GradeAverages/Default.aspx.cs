@@ -142,15 +142,15 @@ namespace GradeAverages
             h1G2 = h1G2 / healthOneG2.Count();
 
             Chart2.Series.Add("Series1");
-            Chart2.Series[0].Points.DataBindXY("1", String.Format("{0:0.00}", h1G1));
+            Chart2.Series[0].Points.AddXY("1", double.Parse(String.Format("{0:0.00}", h1G1)));
             Chart2.Series[0].Font = new System.Drawing.Font("Times", 16f);
 
             Chart2.Series.Add("Series1");
-            Chart2.Series[1].Points.DataBindXY("1", String.Format("{0:0.00}", h1G1));
+            Chart2.Series[1].Points.AddXY("1", double.Parse(String.Format("{0:0.00}", h1G2)));
             Chart2.Series[1].Font = new System.Drawing.Font("Times", 16f);
 
             Chart2.Series.Add("Series1");
-            Chart2.Series[2].Points.DataBindXY("1", String.Format("{0:0.00}", healthOneG3));
+            Chart2.Series[2].Points.AddXY("1", double.Parse(String.Format("{0:0.00}", healthOneG3)));
             Chart2.Series[2].Font = new System.Drawing.Font("Times", 16f);
 
             Chart2.Series[0].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Column;
