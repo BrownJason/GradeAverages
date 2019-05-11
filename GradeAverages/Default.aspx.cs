@@ -117,7 +117,7 @@ namespace GradeAverages
             Chart1.Series[0].LegendText = "Grade Averges";
             Chart1.Titles.Add("Travel Time - Average Grades");
             Chart1.Width = 650;
-            Chart1.Height = 650;
+            Chart1.Height = 450;
         }
     }
 }
