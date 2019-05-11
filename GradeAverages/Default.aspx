@@ -3,7 +3,6 @@
 <%@ Register assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" namespace="System.Web.UI.DataVisualization.Charting" tagprefix="asp" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:ScriptManager ID="script1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="panel1" runat="server">
         <ContentTemplate>
             <div class="jumbotron">
