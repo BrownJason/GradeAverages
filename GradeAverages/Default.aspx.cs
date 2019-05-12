@@ -117,8 +117,6 @@ namespace GradeAverages
 
             Chart1.Series[0].LegendText = "Grade Averges";
             Chart1.Titles.Add("Travel Time - Average Grades");
-            Chart1.Width = 650;
-            Chart1.Height = 450;
 
             IEnumerable<string> healthOneG1 = (from people in peopleArray where people.Health == 1 select people.G1);
             IEnumerable<string> healthTwoG1 = (from people in peopleArray where people.Health == 2 select people.G1);
@@ -183,9 +181,6 @@ namespace GradeAverages
             Chart2.Series[1].LegendText = "G2";
             Chart2.Series[2].LegendText = "G3";
             Chart2.Titles.Add("Overall Health - Average Grades");
-            Chart2.Width = 650;
-            Chart2.Height = 450;
-
         }
 
         public double GetDoubleAmount(IEnumerable<string> value)
