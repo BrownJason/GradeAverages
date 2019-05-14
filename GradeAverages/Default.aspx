@@ -11,53 +11,63 @@
             </div>
 
             <div class="container">
-                <div class="col">
+                <div class="row">
                     <h2>
                         Data Query
                     </h2>
                     <p>
                         By selecting any of the options and hitting submit you can see how these correlate to the overall grade of a student. 
                     </p>
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" OnCheckedChanged="Internet_CheckedChanged" Width="173px" >
-                        <asp:ListItem>Internet Availability</asp:ListItem>
-                        <asp:ListItem>Past Failures</asp:ListItem>
-                        <asp:ListItem>Study Time</asp:ListItem>
-                        <asp:ListItem>Number of Absences</asp:ListItem>
-                    </asp:RadioButtonList>
-                    <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click"/>
+                    <div class="col-md-3">
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" OnCheckedChanged="Internet_CheckedChanged" Width="173px" >
+                            <asp:ListItem>Internet Availability</asp:ListItem>
+                            <asp:ListItem>Past Failures</asp:ListItem>
+                            <asp:ListItem>Study Time</asp:ListItem>
+                            <asp:ListItem>Number of Absences</asp:ListItem>
+                        </asp:RadioButtonList>
+                        <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click"/>
+                    </div>
                     <div>
                         <asp:TextBox ID="TextBox1" runat="server" Height="120px" TextMode="MultiLine" Width="450px" Font-Size="Small"></asp:TextBox>
                     </div>
                 </div>
+            </div>
 
-                <div class="col">
+            <div class="container">
+                <div class="row">
                     <h2>
                         Travel Time
                     </h2>
                     <p>
                         This graph shows the correlation of travel time of the student to their overall grade. 
                     </p>
-                    <asp:Chart ID="Chart1" runat="server" Palette="Excel" EnableViewState="true">
-                        <Legends>
-                            <asp:Legend Name="Travel time in minutes">
-                            </asp:Legend>
-                        </Legends>
-                    </asp:Chart>
+                    <div class="col-md-4">
+                        <asp:Chart ID="Chart1" runat="server" Palette="Excel" EnableViewState="true">
+                            <Legends>
+                                <asp:Legend Name="Travel time in minutes">
+                                </asp:Legend>
+                            </Legends>
+                        </asp:Chart>
+                    </div>
                 </div>
+            </div>
 
-                <div class="col">
+            <div class="container">
+                <div class="row">
                     <h2>
                         Health
                     </h2>
                     <p>
                         This graph shows the overall health of a student based off of how their grades are, with 1 being very bad to 5 being very good.
                     </p>
-                    <asp:Chart ID="Chart2" runat="server" Palette="Excel" EnableViewState="True">
-                        <Legends>
-                            <asp:Legend Name="Overall Health">
-                            </asp:Legend>
-                        </Legends>
-                    </asp:Chart>
+                    <div class="col-md-4">
+                        <asp:Chart ID="Chart2" runat="server" Palette="Excel" EnableViewState="true">
+                            <Legends>
+                                <asp:Legend Name="Overall Health">
+                                </asp:Legend>
+                            </Legends>
+                        </asp:Chart>
+                    </div>
                 </div>
             </div>
         </ContentTemplate>
