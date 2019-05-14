@@ -27,7 +27,7 @@
                         </asp:RadioButtonList>
                         <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click"/>
                     </div>
-                    <div>
+                    <div class="col-md-3">
                         <asp:TextBox ID="TextBox1" runat="server" Height="120px" TextMode="MultiLine" Width="450px" Font-Size="Small"></asp:TextBox>
                     </div>
                 </div>
